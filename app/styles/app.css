@@ -300,6 +300,13 @@ body {
   font-family: inherit;
   font-weight: 700;
   color: var(--white);
+  cursor: pointer;
+  transition: 100ms;
+  font-style: inherit;
+}
+
+.cart .cart-details .checkout:hover {
+  opacity: 0.6;
 }
 
 .cart .empty-cart p {

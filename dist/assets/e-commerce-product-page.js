@@ -292,7 +292,7 @@
 
       _initializerDefineProperty(this, "itemName", _descriptor6, this);
 
-      _defineProperty(this, "productNumbers", [1, 2, 3, 4]);
+      _defineProperty(this, "productNumbers", ['1', '2', '3', '4']);
     }
 
     get total() {
@@ -320,7 +320,7 @@
     }
 
     nextProduct() {
-      if (this.productNumber === 4) {
+      if (this.productNumber == 4) {
         this.productNumber = 1;
       } else {
         this.productNumber++;
@@ -328,7 +328,7 @@
     }
 
     prevProduct() {
-      if (this.productNumber === 1) {
+      if (this.productNumber == 1) {
         this.productNumber = 4;
       } else {
         this.productNumber--;
@@ -352,7 +352,7 @@
     enumerable: true,
     writable: true,
     initializer: function () {
-      return 1;
+      return '1';
     }
   }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "quantity", [_tracking.tracked], {
     configurable: true,
