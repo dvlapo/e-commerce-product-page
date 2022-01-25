@@ -1,0 +1,80 @@
+<NavBar
+  @quantity={{this.quantityInCart}}
+  @itemName={{this.itemName}}
+  @price={{this.price}}
+  @total={{this.total}}
+  @clearCart={{this.clearCart}}
+/>
+
+<main class='main-container'>
+  {{#if this.showLightbox}}
+    <Lightbox
+      @showLightbox={{this.showLightbox}}
+      @closeLightbox={{this.closeLightbox}}
+    />
+  {{/if}}
+  <section class='left'>
+    <div class='large-image'>
+      <span class='prev' {{on 'click' this.prevProduct}}>
+        <ion-icon name='chevron-back-outline'></ion-icon>
+      </span>
+      <img
+        src='/assets/images/image-product-{{this.productNumber}}.jpg'
+        alt=''
+        {{on 'click' this.openLightbox}}
+      />
+      <span class='next' {{on 'click' this.nextProduct}}><ion-icon
+          name='chevron-forward-outline'
+        ></ion-icon></span>
+    </div>
+
+    <div class='thumbnail'>
+      {{#each this.productNumbers as |productId|}}
+        <div class='{{if (equal this.productNumber productId) "active"}}'>
+          <img
+            src='/assets/images/image-product-{{productId}}-thumbnail.jpg'
+            alt=''
+            {{on 'click' (fn this.switchProduct productId)}}
+          />
+        </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <section class='right'>
+    <article>
+      <h3>SNEAKER COMPANY</h3>
+      <h1>{{this.itemName}}</h1>
+      <p>These low-profile sneakers are your perfect casual wear companion.
+        Featuring a durable rubber outer sole, they’ll withstand everything the
+        weather can offer.</p>
+      <div class='flex'>
+        <div class='price'>
+          <h2>${{this.price}}.00</h2>
+          <div class='discount'>
+            <span>50%</span>
+          </div>
+        </div>
+
+        <del class='old-price'>$250.00</del>
+      </div>
+
+    </article>
+
+    <div class='add-to-cart'>
+      <div class='quantity'>
+        <span {{on 'click' this.decrementProductQuantity}}>
+          <img src='/assets/images/icon-minus.svg' alt='' />
+        </span>
+        {{this.quantity}}
+        <span {{on 'click' this.incrementProductQuantity}}><img
+            src='/assets/images/icon-plus.svg'
+            alt=''
+          /></span>
+      </div>
+      <button type='button' {{on 'click' this.addToCart}}><ion-icon
+          name='cart-outline'
+        ></ion-icon>Add to cart</button>
+    </div>
+  </section>
+</main>
