@@ -1269,7 +1269,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("e-commerce-product-page/app")["default"].create({"name":"e-commerce-product-page","version":"0.0.0+52f15a78"});
+            require("e-commerce-product-page/app")["default"].create({"name":"e-commerce-product-page","version":"0.0.0+3165fb1e"});
           }
         
 //# sourceMappingURL=e-commerce-product-page.map
