@@ -3,14 +3,19 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class MainPageComponent extends Component {
-  @tracked productNumber = '1';
+  @tracked product = '/assets/images/image-product-1';
   @tracked quantity = 0;
   @tracked showLightbox = false;
   @tracked quantityInCart = 0;
   @tracked price = 125;
   @tracked itemName = 'Fall Limited Edition Sneakers';
 
-  productNumbers = ['1', '2', '3', '4'];
+  products = [
+    '/assets/images/image-product-1',
+    '/assets/images/image-product-2',
+    '/assets/images/image-product-3',
+    '/assets/images/image-product-4',
+  ];
 
   get total() {
     return this.price * this.quantity;
@@ -32,24 +37,21 @@ export default class MainPageComponent extends Component {
     this.showLightbox = false;
   }
 
-  @action switchProduct(num) {
-    this.productNumber = num;
+  @action switchProduct(selectedProduct) {
+    this.product = selectedProduct;
   }
 
   @action nextProduct() {
-    if (this.productNumber == 4) {
-      this.productNumber = 1;
-    } else {
-      this.productNumber++;
-    }
+    let num = this.product;
+    console.log(num);
   }
 
   @action prevProduct() {
-    if (this.productNumber == 1) {
-      this.productNumber = 4;
-    } else {
-      this.productNumber--;
-    }
+    // if (this.productNumber == 1) {
+    //   this.productNumber = 4;
+    // } else {
+    //   this.productNumber--;
+    // }
   }
 
   @action incrementProductQuantity() {

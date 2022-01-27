@@ -208,23 +208,19 @@
         <span class='prev' {{on 'click' this.prevProduct}}>
           <ion-icon name='chevron-back-outline'></ion-icon>
         </span>
-        <img
-          src='./assets/images/image-product-{{this.productNumber}}.jpg'
-          alt=''
-          {{on 'click' this.openLightbox}}
-        />
+        <img src='{{this.product}}.jpg' alt='' {{on 'click' this.openLightbox}} />
         <span class='next' {{on 'click' this.nextProduct}}><ion-icon
             name='chevron-forward-outline'
           ></ion-icon></span>
       </div>
   
       <div class='thumbnail'>
-        {{#each this.productNumbers as |productId|}}
-          <div class='{{if (equal this.productNumber productId) "active"}}'>
+        {{#each this.products as |product|}}
+          <div class='{{if (equal this.product product) "active"}}'>
             <img
-              src='/assets/images/image-product-{{productId}}-thumbnail.jpg'
+              src='{{product}}-thumbnail.jpg'
               alt=''
-              {{on 'click' (fn this.switchProduct productId)}}
+              {{on 'click' (fn this.switchProduct product)}}
             />
           </div>
         {{/each}}
@@ -270,8 +266,8 @@
   </main>
   */
   {
-    "id": "Dws4KzoZ",
-    "block": "[[[8,[39,0],null,[[\"@quantity\",\"@itemName\",\"@price\",\"@total\",\"@clearCart\"],[[30,0,[\"quantityInCart\"]],[30,0,[\"itemName\"]],[30,0,[\"price\"]],[30,0,[\"total\"]],[30,0,[\"clearCart\"]]]],null],[1,\"\\n\\n\"],[10,\"main\"],[14,0,\"main-container\"],[12],[1,\"\\n\"],[41,[30,0,[\"showLightbox\"]],[[[1,\"    \"],[8,[39,2],null,[[\"@showLightbox\",\"@closeLightbox\"],[[30,0,[\"showLightbox\"]],[30,0,[\"closeLightbox\"]]]],null],[1,\"\\n\"]],[]],null],[1,\"  \"],[10,\"section\"],[14,0,\"left\"],[12],[1,\"\\n    \"],[10,0],[14,0,\"large-image\"],[12],[1,\"\\n      \"],[11,1],[24,0,\"prev\"],[4,[38,3],[\"click\",[30,0,[\"prevProduct\"]]],null],[12],[1,\"\\n        \"],[10,\"ion-icon\"],[14,3,\"chevron-back-outline\"],[12],[13],[1,\"\\n      \"],[13],[1,\"\\n      \"],[11,\"img\"],[16,\"src\",[29,[\"./assets/images/image-product-\",[30,0,[\"productNumber\"]],\".jpg\"]]],[24,\"alt\",\"\"],[4,[38,3],[\"click\",[30,0,[\"openLightbox\"]]],null],[12],[13],[1,\"\\n      \"],[11,1],[24,0,\"next\"],[4,[38,3],[\"click\",[30,0,[\"nextProduct\"]]],null],[12],[10,\"ion-icon\"],[14,3,\"chevron-forward-outline\"],[12],[13],[13],[1,\"\\n    \"],[13],[1,\"\\n\\n    \"],[10,0],[14,0,\"thumbnail\"],[12],[1,\"\\n\"],[42,[28,[37,5],[[28,[37,5],[[30,0,[\"productNumbers\"]]],null]],null],null,[[[1,\"        \"],[10,0],[15,0,[29,[[52,[28,[37,6],[[30,0,[\"productNumber\"]],[30,1]],null],\"active\"]]]],[12],[1,\"\\n          \"],[11,\"img\"],[16,\"src\",[29,[\"/assets/images/image-product-\",[30,1],\"-thumbnail.jpg\"]]],[24,\"alt\",\"\"],[4,[38,3],[\"click\",[28,[37,7],[[30,0,[\"switchProduct\"]],[30,1]],null]],null],[12],[13],[1,\"\\n        \"],[13],[1,\"\\n\"]],[1]],null],[1,\"    \"],[13],[1,\"\\n  \"],[13],[1,\"\\n\\n  \"],[10,\"section\"],[14,0,\"right\"],[12],[1,\"\\n    \"],[10,\"article\"],[12],[1,\"\\n      \"],[10,\"h3\"],[12],[1,\"SNEAKER COMPANY\"],[13],[1,\"\\n      \"],[10,\"h1\"],[12],[1,[30,0,[\"itemName\"]]],[13],[1,\"\\n      \"],[10,2],[12],[1,\"These low-profile sneakers are your perfect casual wear companion.\\n        Featuring a durable rubber outer sole, they’ll withstand everything the\\n        weather can offer.\"],[13],[1,\"\\n      \"],[10,0],[14,0,\"flex\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"price\"],[12],[1,\"\\n          \"],[10,\"h2\"],[12],[1,\"$\"],[1,[30,0,[\"price\"]]],[1,\".00\"],[13],[1,\"\\n          \"],[10,0],[14,0,\"discount\"],[12],[1,\"\\n            \"],[10,1],[12],[1,\"50%\"],[13],[1,\"\\n          \"],[13],[1,\"\\n        \"],[13],[1,\"\\n\\n        \"],[10,\"del\"],[14,0,\"old-price\"],[12],[1,\"$250.00\"],[13],[1,\"\\n      \"],[13],[1,\"\\n\\n    \"],[13],[1,\"\\n\\n    \"],[10,0],[14,0,\"add-to-cart\"],[12],[1,\"\\n      \"],[10,0],[14,0,\"quantity\"],[12],[1,\"\\n        \"],[11,1],[4,[38,3],[\"click\",[30,0,[\"decrementProductQuantity\"]]],null],[12],[1,\"\\n          \"],[10,\"img\"],[14,\"src\",\"/assets/images/icon-minus.svg\"],[14,\"alt\",\"\"],[12],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[1,[30,0,[\"quantity\"]]],[1,\"\\n        \"],[11,1],[4,[38,3],[\"click\",[30,0,[\"incrementProductQuantity\"]]],null],[12],[10,\"img\"],[14,\"src\",\"/assets/images/icon-plus.svg\"],[14,\"alt\",\"\"],[12],[13],[13],[1,\"\\n      \"],[13],[1,\"\\n      \"],[11,\"button\"],[24,4,\"button\"],[4,[38,3],[\"click\",[30,0,[\"addToCart\"]]],null],[12],[10,\"ion-icon\"],[14,3,\"cart-outline\"],[12],[13],[1,\"Add to cart\"],[13],[1,\"\\n    \"],[13],[1,\"\\n  \"],[13],[1,\"\\n\"],[13]],[\"productId\"],false,[\"nav-bar\",\"if\",\"lightbox\",\"on\",\"each\",\"-track-array\",\"equal\",\"fn\"]]",
+    "id": "VXvUlnyq",
+    "block": "[[[8,[39,0],null,[[\"@quantity\",\"@itemName\",\"@price\",\"@total\",\"@clearCart\"],[[30,0,[\"quantityInCart\"]],[30,0,[\"itemName\"]],[30,0,[\"price\"]],[30,0,[\"total\"]],[30,0,[\"clearCart\"]]]],null],[1,\"\\n\\n\"],[10,\"main\"],[14,0,\"main-container\"],[12],[1,\"\\n\"],[41,[30,0,[\"showLightbox\"]],[[[1,\"    \"],[8,[39,2],null,[[\"@showLightbox\",\"@closeLightbox\"],[[30,0,[\"showLightbox\"]],[30,0,[\"closeLightbox\"]]]],null],[1,\"\\n\"]],[]],null],[1,\"  \"],[10,\"section\"],[14,0,\"left\"],[12],[1,\"\\n    \"],[10,0],[14,0,\"large-image\"],[12],[1,\"\\n      \"],[11,1],[24,0,\"prev\"],[4,[38,3],[\"click\",[30,0,[\"prevProduct\"]]],null],[12],[1,\"\\n        \"],[10,\"ion-icon\"],[14,3,\"chevron-back-outline\"],[12],[13],[1,\"\\n      \"],[13],[1,\"\\n      \"],[11,\"img\"],[16,\"src\",[29,[[30,0,[\"product\"]],\".jpg\"]]],[24,\"alt\",\"\"],[4,[38,3],[\"click\",[30,0,[\"openLightbox\"]]],null],[12],[13],[1,\"\\n      \"],[11,1],[24,0,\"next\"],[4,[38,3],[\"click\",[30,0,[\"nextProduct\"]]],null],[12],[10,\"ion-icon\"],[14,3,\"chevron-forward-outline\"],[12],[13],[13],[1,\"\\n    \"],[13],[1,\"\\n\\n    \"],[10,0],[14,0,\"thumbnail\"],[12],[1,\"\\n\"],[42,[28,[37,5],[[28,[37,5],[[30,0,[\"products\"]]],null]],null],null,[[[1,\"        \"],[10,0],[15,0,[29,[[52,[28,[37,6],[[30,0,[\"product\"]],[30,1]],null],\"active\"]]]],[12],[1,\"\\n          \"],[11,\"img\"],[16,\"src\",[29,[[30,1],\"-thumbnail.jpg\"]]],[24,\"alt\",\"\"],[4,[38,3],[\"click\",[28,[37,7],[[30,0,[\"switchProduct\"]],[30,1]],null]],null],[12],[13],[1,\"\\n        \"],[13],[1,\"\\n\"]],[1]],null],[1,\"    \"],[13],[1,\"\\n  \"],[13],[1,\"\\n\\n  \"],[10,\"section\"],[14,0,\"right\"],[12],[1,\"\\n    \"],[10,\"article\"],[12],[1,\"\\n      \"],[10,\"h3\"],[12],[1,\"SNEAKER COMPANY\"],[13],[1,\"\\n      \"],[10,\"h1\"],[12],[1,[30,0,[\"itemName\"]]],[13],[1,\"\\n      \"],[10,2],[12],[1,\"These low-profile sneakers are your perfect casual wear companion.\\n        Featuring a durable rubber outer sole, they’ll withstand everything the\\n        weather can offer.\"],[13],[1,\"\\n      \"],[10,0],[14,0,\"flex\"],[12],[1,\"\\n        \"],[10,0],[14,0,\"price\"],[12],[1,\"\\n          \"],[10,\"h2\"],[12],[1,\"$\"],[1,[30,0,[\"price\"]]],[1,\".00\"],[13],[1,\"\\n          \"],[10,0],[14,0,\"discount\"],[12],[1,\"\\n            \"],[10,1],[12],[1,\"50%\"],[13],[1,\"\\n          \"],[13],[1,\"\\n        \"],[13],[1,\"\\n\\n        \"],[10,\"del\"],[14,0,\"old-price\"],[12],[1,\"$250.00\"],[13],[1,\"\\n      \"],[13],[1,\"\\n\\n    \"],[13],[1,\"\\n\\n    \"],[10,0],[14,0,\"add-to-cart\"],[12],[1,\"\\n      \"],[10,0],[14,0,\"quantity\"],[12],[1,\"\\n        \"],[11,1],[4,[38,3],[\"click\",[30,0,[\"decrementProductQuantity\"]]],null],[12],[1,\"\\n          \"],[10,\"img\"],[14,\"src\",\"/assets/images/icon-minus.svg\"],[14,\"alt\",\"\"],[12],[13],[1,\"\\n        \"],[13],[1,\"\\n        \"],[1,[30,0,[\"quantity\"]]],[1,\"\\n        \"],[11,1],[4,[38,3],[\"click\",[30,0,[\"incrementProductQuantity\"]]],null],[12],[10,\"img\"],[14,\"src\",\"/assets/images/icon-plus.svg\"],[14,\"alt\",\"\"],[12],[13],[13],[1,\"\\n      \"],[13],[1,\"\\n      \"],[11,\"button\"],[24,4,\"button\"],[4,[38,3],[\"click\",[30,0,[\"addToCart\"]]],null],[12],[10,\"ion-icon\"],[14,3,\"cart-outline\"],[12],[13],[1,\"Add to cart\"],[13],[1,\"\\n    \"],[13],[1,\"\\n  \"],[13],[1,\"\\n\"],[13]],[\"product\"],false,[\"nav-bar\",\"if\",\"lightbox\",\"on\",\"each\",\"-track-array\",\"equal\",\"fn\"]]",
     "moduleName": "e-commerce-product-page/components/main-page.hbs",
     "isStrictMode": false
   });
@@ -280,7 +276,7 @@
     constructor() {
       super(...arguments);
 
-      _initializerDefineProperty(this, "productNumber", _descriptor, this);
+      _initializerDefineProperty(this, "product", _descriptor, this);
 
       _initializerDefineProperty(this, "quantity", _descriptor2, this);
 
@@ -292,7 +288,7 @@
 
       _initializerDefineProperty(this, "itemName", _descriptor6, this);
 
-      _defineProperty(this, "productNumbers", ['1', '2', '3', '4']);
+      _defineProperty(this, "products", ['/assets/images/image-product-1', '/assets/images/image-product-2', '/assets/images/image-product-3', '/assets/images/image-product-4']);
     }
 
     get total() {
@@ -315,24 +311,20 @@
       this.showLightbox = false;
     }
 
-    switchProduct(num) {
-      this.productNumber = num;
+    switchProduct(selectedProduct) {
+      this.product = selectedProduct;
     }
 
     nextProduct() {
-      if (this.productNumber == 4) {
-        this.productNumber = 1;
-      } else {
-        this.productNumber++;
-      }
+      let num = this.product;
+      console.log(num);
     }
 
-    prevProduct() {
-      if (this.productNumber == 1) {
-        this.productNumber = 4;
-      } else {
-        this.productNumber--;
-      }
+    prevProduct() {// if (this.productNumber == 1) {
+      //   this.productNumber = 4;
+      // } else {
+      //   this.productNumber--;
+      // }
     }
 
     incrementProductQuantity() {
@@ -347,12 +339,12 @@
       }
     }
 
-  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "productNumber", [_tracking.tracked], {
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "product", [_tracking.tracked], {
     configurable: true,
     enumerable: true,
     writable: true,
     initializer: function () {
-      return '1';
+      return '/assets/images/image-product-1';
     }
   }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "quantity", [_tracking.tracked], {
     configurable: true,
@@ -1267,7 +1259,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("e-commerce-product-page/app")["default"].create({"name":"e-commerce-product-page","version":"0.0.0+fc6348bf"});
+            require("e-commerce-product-page/app")["default"].create({"name":"e-commerce-product-page","version":"0.0.0+52f15a78"});
           }
         
 //# sourceMappingURL=e-commerce-product-page.map
