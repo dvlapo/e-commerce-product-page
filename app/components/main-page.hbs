@@ -18,19 +18,23 @@
       <span class='prev' {{on 'click' this.prevProduct}}>
         <ion-icon name='chevron-back-outline'></ion-icon>
       </span>
-      <img src='{{this.product}}.jpg' alt='' {{on 'click' this.openLightbox}} />
+      <img
+        src='/assets/images/image-product-{{this.productNumber}}.jpg'
+        alt=''
+        {{on 'click' this.openLightbox}}
+      />
       <span class='next' {{on 'click' this.nextProduct}}><ion-icon
           name='chevron-forward-outline'
         ></ion-icon></span>
     </div>
 
     <div class='thumbnail'>
-      {{#each this.products as |product|}}
-        <div class='{{if (equal this.product product) "active"}}'>
+      {{#each this.productNumbers as |productId|}}
+        <div class='{{if (equal this.productNumber productId) "active"}}'>
           <img
-            src='{{product}}-thumbnail.jpg'
+            src='/assets/images/image-product-{{productId}}-thumbnail.jpg'
             alt=''
-            {{on 'click' (fn this.switchProduct product)}}
+            {{on 'click' (fn this.switchProduct productId)}}
           />
         </div>
       {{/each}}

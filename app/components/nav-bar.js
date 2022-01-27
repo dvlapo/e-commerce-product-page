@@ -8,11 +8,13 @@ export default class NavBarComponent extends Component {
 
   @action openNavbar() {
     this.showNavbar = true;
+    this.showCart = false;
   }
   @action closeNavbar() {
     this.showNavbar = false;
   }
   @action toggleCart() {
     this.showCart = !this.showCart;
+    this.showNavbar = false;
   }
 }

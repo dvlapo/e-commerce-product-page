@@ -2,9 +2,13 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+// eslint-disable-next-line no-unused-vars
 module.exports = function (defaults) {
-  let app = new EmberApp(defaults, {
+  let app = new EmberApp({
     // Add options here
+    fingerprint: {
+      enabled: false,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
